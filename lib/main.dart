@@ -2,12 +2,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
-
 import 'core/app.dart';
 import 'core/app_setup.dart';
 import 'env.dart';
-
-final providerContainer = ProviderContainer();
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,9 +13,8 @@ Future<void> main() async {
 
   if (kDebugMode) {
     runApp(
-      UncontrolledProviderScope(
-        container: providerContainer,
-        child: const App(),
+      const ProviderScope(
+        child: App(),
       ),
     );
   } else {
@@ -30,9 +26,8 @@ Future<void> main() async {
           ..tracesSampleRate = 1.0;
       },
       appRunner: () => runApp(
-        UncontrolledProviderScope(
-          container: providerContainer,
-          child: const App(),
+        const ProviderScope(
+          child: App(),
         ),
       ),
     );

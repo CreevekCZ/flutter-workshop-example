@@ -16,7 +16,8 @@ class AppSetup {
     final packageInfo = await _getPackageInfo();
 
     Com.config = ComConfig(
-      preDecorder: (payload) => payload['payload'],
+      preDecorder: (payload) => payload,
+      mainHost: 'api.spacexdata.com/v4',
       sharedHeaders: {
         'User-Agent':
             'App: ${packageInfo.appName}, Version: ${packageInfo.version} (${packageInfo.buildNumber})',
