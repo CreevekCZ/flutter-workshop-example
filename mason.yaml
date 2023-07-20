@@ -1,0 +1,13 @@
+# Register bricks which can be consumed via the Mason CLI.
+# Run "mason get" to install all registered bricks.
+# To learn more, visit https://docs.brickhub.dev.
+bricks:
+  creevek_flutter_sandbox_feature:
+    git:
+      url: "https://github.com/CreevekCZ/creevek__flutter_sandbox_feature"
+      ref: main
+
+  creevek_flutter_sandbox:
+    git:
+      url: "https://github.com/CreevekCZ/creevek_flutter_sendbox"
+      ref: main
